@@ -1,0 +1,12 @@
+package ${packageName}.controller;
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/${tableInfo.name.substring(0, 1).toLowerCase()}${tableInfo.name.substring(1)}")
+public class ${tableInfo.name}Controller {
+
+}

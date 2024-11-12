@@ -1,0 +1,41 @@
+package ${packageName}.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.util.*;
+/**
+ * $!{tableInfo.tableName}表实体类
+ *
+ * @author $!{tableInfo.author}
+ * @since $!{tableInfo.createTime}
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Accessors(chain = true)
+@TableName("$!{tableInfo.tableName}")
+public class $!{tableInfo.name}  {
+#foreach($column in $tableInfo.pkColumns)
+    #if(${column.comment})
+    /**
+     * ${column.comment}
+     */
+    #end
+    @TableId
+    private $!{column.javaType} $!{column.name};
+#end
+
+#foreach($column in $tableInfo.columns)
+    #if(${column.comment})
+    /**
+     * ${column.comment}
+     */
+    #end
+    private $!{column.javaType} $!{column.name};
+#end
+
+}
